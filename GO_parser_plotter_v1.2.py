@@ -3,7 +3,7 @@
 #######################################################################################################################
 # This GO_parser_plotter software is intended to take gene ontology (GO) enrichment data from a Novogene RNASeq,      #
 # parse thru, grab relevant columns, and create user-defined heatmaps (Salanga Lab specific)                          #
-# Created by: Phillip Kalaniopio; Last edited: 4/23/2021                                                              #
+# Created by: Phillip Kalaniopio; Last edited: 4/24/2021                                                              #
 #######################################################################################################################
 
 version = "1.2"
