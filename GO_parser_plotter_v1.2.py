@@ -3,7 +3,7 @@
 #######################################################################################################################
 # This GO_parser_plotter software is intended to take gene ontology (GO) enrichment data from a Novogene RNASeq,      #
 # parse thru, grab relevant columns, and create user-defined heatmaps (Salanga Lab specific)                          #
-# Created by: Phillip Kalaniopio; Last edited: 4/24/2021                                                              #
+# Created by: Phillip Kalaniopio; Last edited: 5/2/2021                                                               #
 #######################################################################################################################
 
 version = "1.2"
@@ -69,13 +69,11 @@ print("Data has been parsed!")
 # Graph
 fig, ax = plt.subplots(figsize=(12, 12))
 
-ax = sns.heatmap(numbers, yticklabels=nums_dict.keys(), xticklabels=[str(args.input1name), str(args.input2name)],
+sns.heatmap(numbers, yticklabels=nums_dict.keys(), xticklabels=[str(args.input1name), str(args.input2name)],
                  vmax=args.pvalue, vmin=0, cmap=args.color)
 
 ax.set_xlabel("Conditions", fontsize=14)
 
 fig.savefig(outputFile, dpi=300, bbox_inches='tight')
-
-# open output file for writing, name it via user input, write out output set to it, close it
 
 print("Done!")
