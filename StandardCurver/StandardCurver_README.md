@@ -18,11 +18,11 @@ concentrations.
 
 ### Input
 
-	1. **.csv file** that contains two columns of equal length: **'Concentration' and 'Absorbance'**
-	2. **Wavelength** that absorbance was captured at (for example: 750nm)
-	3. **Optional .csv file** that contains two columns of equal length: **'Sample' and 'UnknownAbs'**
-	4. **Optional output file name** use .pdf file ending to save as a .pdf; defaults to 
-	"StandardCurve{date}" where date will be grabbed from your computer in m_d_y format.
+1. **.csv file** that contains two columns of equal length: **'Concentration' and 'Absorbance'**
+2. **Wavelength** that absorbance was captured at (for example: 750nm)
+3. **Optional .csv file** that contains two columns of equal length: **'Sample' and 'UnknownAbs'**
+4. **Optional output file name** use .pdf file ending to save as a .pdf; defaults to 
+"StandardCurve{date}" where date will be grabbed from your computer in m_d_y format.
 
 ### Usage
 
