@@ -1,6 +1,8 @@
 # StandardCurver version 1.1
-
-This program takes in a raw .csv file of concentration and absorbance data from 
+This program takes in a raw .csv file of concentration and absorbance data from any type of
+protein concentration assay (e.g., RC/DC, Lowry, BCA, Bradford Assay, etc.) in order to 
+generate a standard curve and regression line in order to determine unknown protein sample
+concentrations. 
 
 
 ### Dependencies
@@ -16,18 +18,23 @@ This program takes in a raw .csv file of concentration and absorbance data from
 
 ### Input
 
-Input .csv file that contains two columns of equal length: 'Concentration' and 'Absorbance'
-Optional .csv file that contains two columns of equal length: 'Sample' and 'UnknownAbs'
-Wavelength argument: wavelength that absorbance was captured at (for example: 750nm)
-Optional output file name argument: use .pdf file ending to save as a .pdf; defaults to 
-"StandardCurve{date}" where date will be grabbed from your computer in m_d_y format.
+	1. **.csv file** that contains two columns of equal length: **'Concentration' and 'Absorbance'**
+	2. **Wavelength** that absorbance was captured at (for example: 750nm)
+	3. **Optional .csv file** that contains two columns of equal length: **'Sample' and 'UnknownAbs'**
+	4. **Optional output file name** use .pdf file ending to save as a .pdf; defaults to 
+	"StandardCurve{date}" where date will be grabbed from your computer in m_d_y format.
 
+### Usage
+
+To get usage info:
+```
+StandardCurver.py -h
+```
+```
+usage: StandardCurver.py -a stdcurvedata -b unknownsampledata -w 750nm -o outputfilename.pdf
+```
 
 ### Options
-
-Used for creation of standard curve figures from DC/BCA/Bradford Assays and calculation of
-unknown protein concentrations
-
 ```
 Options:
   -h, --help            show this help message and exit
@@ -42,23 +49,17 @@ Options:
                         output file name and file extension
 ```
 
-### Usage
-
-```
-usage: StandardCurver.py -a stdcurvedata -b unknownsampledata -w 750nm -o outputfilename.pdf
-```
-To get usage info:
-
-```
-StandardCurver.py -h
-```
-
-
 ### Output
 
-You will receive one graph that includes 1) line of best fit for your standard curve, 2)
-your observed standard values, 3) the regression line equation printed on the graph, and 4)
-the R-squared value for the regression line.
+You will receive one graph that includes:
+	- line of best fit for your standard curve
+	- your observed standard values
+	- the regression line equation printed on the graph
+	- the R-squared value for the regression line.
+
+If you utilize the optional input2 argument and provide unknown protein samples you will 
+also receive:
+	- an excel spreadsheet with calculated concentrations from your regression line
 
 
 Copyright (C) 2021 Phillip Kalaniopio
