@@ -43,7 +43,7 @@ else:
 
 # save variables as x and y respectively
 x = df1['Concentration']
-y = df1['OL_Absorbance']
+y = df1['Absorbance']
 
 #Save best fit line to variables
 m, b = np.poly1d(np.polyfit(x, y, 1))
