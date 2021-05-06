@@ -52,14 +52,14 @@ Options:
 ### Output
 
 You will receive one graph that includes:
-	- line of best fit for your standard curve
-	- your observed standard values
-	- the regression line equation printed on the graph
-	- the R-squared value for the regression line.
+- line of best fit for your standard curve
+- your observed standard values
+- the regression line equation printed on the graph
+- the R-squared value for the regression line.
 
 If you utilize the optional input2 argument and provide unknown protein samples you will 
 also receive:
-	- an excel spreadsheet with calculated concentrations from your regression line
+- an excel spreadsheet with calculated concentrations from your regression line
 
 
 Copyright (C) 2021 Phillip Kalaniopio
