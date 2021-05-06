@@ -1,8 +1,9 @@
 # StandardCurver version 1.1
 This program takes in a raw .csv file of concentration and absorbance data from any type of
 protein concentration assay (e.g., RC/DC, Lowry, BCA, Bradford Assay, etc.) in order to 
-generate a standard curve and regression line in order to determine unknown protein sample
-concentrations. 
+generate a figure containing a standard curve and regression line. It can then also take in
+a file containing unknown protein samples to determine concentration using the fitted 
+regression line (y=mx+b) from the standard curve.
 
 
 ### Dependencies
@@ -24,6 +25,7 @@ concentrations.
 4. **Optional output file name** use .pdf file ending to save as a .pdf; defaults to 
 "StandardCurve{date}" where date will be grabbed from your computer in m_d_y format.
 
+
 ### Usage
 
 To get usage info:
@@ -33,6 +35,7 @@ StandardCurver.py -h
 ```
 usage: StandardCurver.py -a stdcurvedata -b unknownsampledata -w 750nm -o outputfilename.pdf
 ```
+
 
 ### Options
 ```
@@ -49,13 +52,14 @@ Options:
                         output file name and file extension
 ```
 
+
 ### Output
 
 You will receive one graph that includes:
 - line of best fit for your standard curve
 - your observed standard values
 - the regression line equation printed on the graph
-- the R-squared value for the regression line.
+- the R-squared value for the regression line
 
 If you utilize the optional input2 argument and provide unknown protein samples you will 
 also receive:
