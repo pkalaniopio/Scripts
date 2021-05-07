@@ -84,9 +84,6 @@ df2['Calc_concentration'] = (unk - b)/m    # based on rearranging y=mx+b to get 
 df2.to_excel(f"unknowns{runDatetoWrite}.xlsx",
 	columns=['Sample', 'UnknownAbs','Calc_concentration'], sheet_name="Sheet1")
 
-
-
-
 print("Done!")
 
 
