@@ -32,7 +32,7 @@ the graphing portion of the script more readable and efficient, as well as updat
 
 
 ### Input
-1. **two input files (.tsv)** of Novogene DEG Gene Ontology term data with 2 columns (at minimum) labeled as "Description" and "Over_represented_pValue"
+1. **two input files (.tsv)** of DEG Gene Ontology term data with 2 columns (at minimum) labeled as "Description" and "Over_represented_pValue"
 2. **input file names** for labeling the x-axis of the heatmap
 3. **p-value threshold** for GO term inclusion
 4. **output file name and extension** (e.g., output.pdf)
@@ -66,6 +66,13 @@ Options:
 ```
 
 
+### Output
+
+You will receive:
+- A custom made heatmap containing GO terms that fit beneath the p-value threshold and that
+are in both input datasets.
+
+
 Copyright (C) 2021 Phillip Kalaniopio
 
 This program is free software: you can redistribute it and/or modify
@@ -82,5 +89,4 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 If you have any questions about either this program or the GNU General Public License,
-please email me at Phillip.Kalaniopio@nau.eduIf you have any questions about either this program or the GNU General Public License,
 please email me at Phillip.Kalaniopio@nau.edu
