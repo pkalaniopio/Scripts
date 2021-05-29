@@ -1,4 +1,4 @@
-# StandardCurver version 1.1
+# StandardCurver version 1.2
 This program takes in a raw .csv file of concentration and absorbance data from any type of
 protein concentration assay (e.g., RC/DC, Lowry, BCA, Bradford Assay, etc.) in order to 
 generate a figure containing a standard curve and regression line. It can then also take in
