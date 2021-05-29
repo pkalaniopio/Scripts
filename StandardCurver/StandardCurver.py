@@ -84,9 +84,10 @@ fig.savefig(args.output, dpi=300, bbox_inches='tight')
 unk = df2['UnknownAbs']
 df2['Calculated_concentration (ug/uL)'] = (unk - b)/m    # based on rearranging y=mx+b to get x=(y-b)/m
 calc = df2['Calculated_concentration (ug/uL)'].astype('float')
+df2['Undiluted_concentration (ug/uL)'] = calc * args.dilution
 df2['volume/well (uL)'] = (args.conc / calc) / args.dilution
 df2.to_excel(f"solved_unknowns{runDatetoWrite}.xlsx",
-	columns=['Sample', 'UnknownAbs','Calculated_concentration (ug/uL)', 'volume/well (uL)'], sheet_name="Sheet1")
+	columns=['Sample', 'UnknownAbs','Calculated_concentration (ug/uL)','Undiluted_concentration (ug/uL)','volume/well (uL)'], sheet_name="Sheet1")
 
 
 
