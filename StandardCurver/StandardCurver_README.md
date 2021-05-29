@@ -33,7 +33,7 @@ To get usage info:
 StandardCurver.py -h
 ```
 ```
-usage: StandardCurver.py -a stdcurvedata -b unknownsampledata -w 750nm -o outputfilename.pdf
+usage: StandardCurver.py -a stdcurvedata.csv -b unknownsampledata.csv -w 750nm -c 20 -d 10 -o outputfilename.pdf
 ```
 
 
@@ -48,6 +48,9 @@ Options:
                         Unknown sample absorbances (as 'UnknownAbs')
   -w WAVELENGTH, --wavelength WAVELENGTH
                         Wavelength(nm)
+  -c CONC, --conc CONC  Desired protein concentration calculation (ug) (integer/float)
+  -d DILUTION, --dilution DILUTION
+                        Sample dilution factor (integer/float)
   -o OUTPUT, --output OUTPUT
                         output file name and file extension
 ```
@@ -63,7 +66,8 @@ You will receive one graph that includes:
 
 If you utilize the optional input2 argument and provide unknown protein samples you will 
 also receive:
-- an excel spreadsheet with calculated concentrations from your regression line
+- an excel spreadsheet with calculated concentrations, undiluted concentrations, and the uL
+draw up to reach a desired mass of protein, all calculated from your regression line.
 
 
 Copyright (C) 2021 Phillip Kalaniopio

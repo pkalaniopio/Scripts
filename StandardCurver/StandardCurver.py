@@ -20,7 +20,7 @@ runDatetoWrite = today.strftime("%m_%d_%y")
 # use argparse to add user help, arguments, etc.
 parser = argparse.ArgumentParser(
 	prog='StandardCurver',
-	usage='StandardCurver.py -a stdcurvedata -b unknownsampledata -w 750nm -o outputfilename.pdf',
+	usage='StandardCurver.py -a stdcurvedata.csv -b unknownsampledata.csv -w 750nm -c 20 -d 10 -o outputfilename.pdf',
 	description ='Used for creation of standard curve figures from RC/DC, BCA, and Bradford Assays and calculation of unknown protein concentrations',
 	formatter_class=argparse.RawDescriptionHelpFormatter)
 
