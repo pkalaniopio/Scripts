@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 version = "1.2"
-print("You are using Phillip Kalaniopio's StandardCurver version %s" % version)
+print(f"You are using Phillip Kalaniopio's StandardCurver version {version}")
 
 # import modules
 from datetime import date
