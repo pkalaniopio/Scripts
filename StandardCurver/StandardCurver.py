@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-version = "1.1"
+version = "1.2"
 print("You are using Phillip Kalaniopio's StandardCurver version %s" % version)
 
 # import modules
@@ -12,7 +12,7 @@ import numpy as np
 import scipy
 from scipy import stats
 
-# set date and save to runDate variable
+# set date and save to runDate variables
 today = date.today()
 runDatetoPlot = today.strftime("%m/%d/%y")
 runDatetoWrite = today.strftime("%m_%d_%y")
@@ -21,13 +21,15 @@ runDatetoWrite = today.strftime("%m_%d_%y")
 parser = argparse.ArgumentParser(
 	prog='StandardCurver',
 	usage='StandardCurver.py -a stdcurvedata -b unknownsampledata -w 750nm -o outputfilename.pdf',
-	description ='Used for creation of standard curve figures from DC/BCA/Bradford Assays and calculation of unknown protein concentrations',
+	description ='Used for creation of standard curve figures from RC/DC, BCA, and Bradford Assays and calculation of unknown protein concentrations',
 	formatter_class=argparse.RawDescriptionHelpFormatter)
 
 parser.add_argument("-a", '--input1', help="Standard Curve data (as 'Concentrations' and 'Absorbances')", required=True)
 parser.add_argument("-b", '--input2', help="Unknown sample absorbances (as 'UnknownAbs')")
 parser.add_argument("-w", '--wavelength', help="Wavelength(nm)", required=True)
-parser.add_argument('-o', '--output', help='output file name and file extension', default=f"StandardCurve{runDatetoWrite}.pdf")
+parser.add_argument("-c", '--conc', help="Desired protein concentration calculation (ug)", default=20)
+parser.add_argument("-d", '--dilution', help="Sample dilution factor", default=10)
+parser.add_argument('-o', '--output', help='output file name and file extension', default=f"RCDC_StandardCurve{runDatetoWrite}.pdf")
 
 args = parser.parse_args()
 
@@ -65,34 +67,28 @@ ax.plot(x, m*x + b, label='Best Fit Line', c="red", zorder=1)
 ax.scatter(x, y, label="Observed Values", c="black", marker="s", s=200, zorder=2)
 
 # Customization
-ax.set_title(f"Standard Curve {runDatetoPlot}", fontsize=28)
+ax.set_title(f"RC/DC Standard Curve {runDatetoPlot}", fontsize=28)
 ax.set_xlabel('Protein Concentration (mg/mL)', fontsize=25)
 ax.set_ylabel(f"Absorbance at {args.wavelength}", fontsize=25)
 ax.legend(loc='best', fontsize=20, frameon=False)
 ax.tick_params(axis='both', which='major', labelsize=18)
 
 # add R^2 value and equation to plot
-ax.text(1.25, 0.53, r2forPlot, fontsize=21)
-ax.text(1.20, 0.58, lineEqforPlot, fontsize=21)
+ax.text(1.25, 0.50, r2forPlot, fontsize=21)
+ax.text(1.20, 0.55, lineEqforPlot, fontsize=21)
 
 # save figure
 fig.savefig(args.output, dpi=300, bbox_inches='tight')
 
 # figuring out unknown concentrations
 unk = df2['UnknownAbs']
-df2['Calc_concentration'] = (unk - b)/m    # based on rearranging y=mx+b to get x=(y-b)/m
-df2.to_excel(f"unknowns{runDatetoWrite}.xlsx",
-	columns=['Sample', 'UnknownAbs','Calc_concentration'], sheet_name="Sheet1")
+df2['Calculated_concentration (ug/uL)'] = (unk - b)/m    # based on rearranging y=mx+b to get x=(y-b)/m
+calc = df2['Calculated_concentration (ug/uL)'].astype('float')
+df2['volume/well (uL)'] = (args.conc / calc) / args.dilution
+df2.to_excel(f"solved_unknowns{runDatetoWrite}.xlsx",
+	columns=['Sample', 'UnknownAbs','Calculated_concentration (ug/uL)', 'volume/well (uL)'], sheet_name="Sheet1")
+
+
+
 
 print("Done!")
-
-
-
-
-
-
-
-
-
-
-
