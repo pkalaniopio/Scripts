@@ -1,7 +1,7 @@
 # Scripts
 General purpose python3 scripts for molecular biology workflows, transcriptomics, etc. 
 
-Copyright (C) 2021 Phillip Kalaniopio
+Copyright (C) 2025 Phillip Kalaniopio
 
 This is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
 
